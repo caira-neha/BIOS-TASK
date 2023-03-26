@@ -1,0 +1,79 @@
+import java.util.ArrayList; // import the ArrayList class
+class Student {
+    private final String NAME;
+    private final int ID;
+    private final ArrayList<String> courses; // create an arraylist object
+
+    public Student(String NAME, int ID) {
+        this.NAME = NAME;
+        this.ID = ID;
+        this.courses = new ArrayList<>();
+    }
+
+    public void addCourse(String course) {
+        this.courses.add(course);
+    }
+
+    public void printInfo() {
+        System.err.println("Name: " + this.NAME);
+        System.err.println("ID: " + this.ID);
+        System.err.println ("Courses: " + this.courses);
+    }
+}
+class GraduateStudent extends Student {
+    private final String RESEARCHAREA;
+
+    public GraduateStudent(String NAME, int ID, String RESEARCHAREA) {
+        super(NAME, ID);
+        this.RESEARCHAREA = RESEARCHAREA;
+    }
+
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.err.println("Research Area: " + this.RESEARCHAREA);
+    }
+}
+public class EnrollmentSystem {
+
+
+    public static void main(String[] args) {
+        // creating some examples..
+        Student s1 = new Student("Akash", 1123);
+        s1.addCourse("Computer Science");//to add elements to the array list
+        s1.addCourse("Maths");
+        Student s2 = new Student("Riya Khan", 2122);
+        s2.addCourse("English");
+        s2.addCourse("Economics");
+
+
+
+
+
+        GraduateStudent s4 = new GraduateStudent("Arohi Arora", 2123, "Maths");
+        s4.addCourse("Linear Algebra");
+        s4.addCourse("Calculus");
+
+        GraduateStudent s5 = new GraduateStudent("Malishka", 3123, "Computer Science");
+        s5.addCourse("AI and ML");
+
+
+
+        // Printing out the students details
+        System.err.println("Student 1:");
+        s1.printInfo();
+        System.err.println();
+
+        System.err.println("Student 2:");
+        s2.printInfo();
+        System.err.println();
+
+        System.err.println("Graduate Student 1:");
+        s4.printInfo();
+        System.err.println();
+
+        System.err.println("Graduate Student 2:");
+        s5.printInfo();
+        System.err.println();
+    }
+}
